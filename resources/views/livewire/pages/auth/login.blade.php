@@ -68,11 +68,11 @@ new #[Layout('layouts.guest')] class extends Component {
                 {{ __('Log in') }}
             </x-primary-button>
 
-            <a href="/register" wire:navigate>
-                <x-secondary-button class="ms-3">
-                    {{ __('Register') }}
-                </x-secondary-button>
-            </a>
+            <x-secondary-button as="a" href="{{ route('register') }}" wire:navigate
+                class="ms-3 hover:text-indigo-600">
+                {{ __('Register') }}
+            </x-secondary-button>
+
         </div>
     </form>
 </div>

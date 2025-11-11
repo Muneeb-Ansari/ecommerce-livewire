@@ -26,6 +26,7 @@
                     </div>
                 </header>
             @endif
+            <livewire:layout.sidebar />
 
             <!-- Page Content -->
             <main>

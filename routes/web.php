@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Admin\UserCreate;
+// use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'dashboard')->middleware(['auth', 'verified'])
+Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-
+// Auth::routes(['verify' => true]);
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+    Route::get('/admin/users/create', UserCreate::class)->name('admin.users.create');
+});
+
+require __DIR__ . '/auth.php';

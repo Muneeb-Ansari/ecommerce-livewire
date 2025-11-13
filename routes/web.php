@@ -18,6 +18,9 @@ use App\Livewire\Admin\UserCreate;
 Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::view('/posts', 'posts')->middleware(['auth', 'verified'])
+    ->name('posts');
+
 // Auth::routes(['verify' => true]);
 Route::view('profile', 'profile')
     ->middleware(['auth'])
